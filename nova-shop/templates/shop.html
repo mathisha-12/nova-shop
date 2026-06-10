@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Shop — Nova{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>Shop</h1>
+  <p class="muted">{{ products|length }} products</p>
+  <form method="get" class="filters">
+    <input name="q" value="{{ q }}" placeholder="Search products…" class="search">
+    <div class="chips">
+      {% for c in categories %}
+        <a href="{{ url_for('shop', q=q, category=c) }}" class="chip {% if c==cat %}active{% endif %}">{{ c }}</a>
+      {% endfor %}
+    </div>
+  </form>
+  <div class="grid">
+    {% for p in products %}{% include "_card.html" %}{% else %}<p class="muted">No products match.</p>{% endfor %}
+  </div>
+</div>
+{% endblock %}

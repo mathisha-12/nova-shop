@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero container">
+  <div>
+    <p class="eyebrow">New collection · 2026</p>
+    <h1>Everyday things,<br>beautifully chosen.</h1>
+    <p class="lead">A curated mix of electronics, fashion, and home essentials.</p>
+    <a href="{{ url_for('shop') }}" class="btn">Shop now →</a>
+  </div>
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80" alt=""></div>
+</section>
+
+<section class="container features">
+  <div class="feature">🚚 <div><strong>Free shipping</strong><span>Over $100</span></div></div>
+  <div class="feature">↩️ <div><strong>30-day returns</strong><span>No questions asked</span></div></div>
+  <div class="feature">🛡️ <div><strong>2-year warranty</strong><span>On electronics</span></div></div>
+</section>
+
+<section class="container">
+  <h2>Featured picks</h2>
+  <div class="grid">
+    {% for p in products %}{% include "_card.html" %}{% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Nova — Modern essentials{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="{{ url_for('index') }}" class="logo">nova<span>.</span></a>
+    <nav class="links">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('shop') }}">Shop</a>
+      <a href="{{ url_for('cart') }}">Cart</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+    <div class="actions">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+      <a href="{{ url_for('cart') }}" class="icon-btn cart-btn">🛒
+        {% if cart_count %}<span class="badge">{{ cart_count }}</span>{% endif %}
+      </a>
+    </div>
+  </div>
+</header>
+
+{% with msgs = get_flashed_messages() %}
+  {% if msgs %}<div class="toast">{{ msgs[0] }}</div>{% endif %}
+{% endwith %}
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer class="footer">
+  <div class="container">© 2026 Nova. All rights reserved.</div>
+</footer>
+
+<button id="chat-fab" class="chat-fab" aria-label="Open chat">💬</button>
+<div id="chat-panel" class="chat-panel" hidden>
+  <div class="chat-head"><strong>Nova Assistant</strong><button id="chat-close">✕</button></div>
+  <div id="chat-msgs" class="chat-msgs">
+    <div class="msg bot">Hi! Ask me about products, shipping, or returns.</div>
+  </div>
+  <form id="chat-form" class="chat-form">
+    <input id="chat-input" placeholder="Type a message…" autocomplete="off">
+    <button type="submit">➤</button>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
