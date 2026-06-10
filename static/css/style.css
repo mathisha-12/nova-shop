@@ -1,3 +1,6 @@
+[hidden]{
+  display:none !important;
+}
 :root{--bg:#fafaf7;--fg:#13192b;--muted:#6b7280;--card:#fff;--border:#e8e8e3;--primary:#d64a2b;--primary-fg:#fff;--secondary:#f1f1ec;}
 [data-theme="dark"]{--bg:#14172a;--fg:#f3f3ef;--muted:#9aa0b4;--card:#1d2238;--border:#2b3050;--primary:#f08060;--primary-fg:#14172a;--secondary:#252a45;}
 *{box-sizing:border-box}html,body{margin:0;padding:0}
